@@ -29,7 +29,7 @@ public class FileEncoder61673 {
 			out.close();
 		}
 		private boolean isPrime(int number) {
-			int i = 2;
+			int k = 2;
 			if(number==0)
 			{
 				return false;
@@ -38,15 +38,15 @@ public class FileEncoder61673 {
 			{
 				return true;
 			}
-			while(i<=Math.sqrt(number))
+			while(k<=Math.sqrt(number))
 			{
-				if(number%i==0)
+				if(number%k==0)
 				{
 					return false;
 				}
-				i++;	
+				k++;	
 			}
-			return false;
+			return true;
 		}
 		public void decode(String sourceFile, String destinationFile, LinkedList<Character> key) throws IOException
 		{
