@@ -25,6 +25,7 @@ public class FileEncoder61673 {
 					out.write(readed);
 				}
 			}
+			in.close();
 			out.close();
 		}
 		private boolean isPrime(int number) {
@@ -64,6 +65,7 @@ public class FileEncoder61673 {
 					out.write(readed);
 				}
 			}
+			in.close();
 			out.close();
 		}
 }
