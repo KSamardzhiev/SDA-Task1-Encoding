@@ -13,7 +13,7 @@ public class FileEncoder61673 {
 		{
 			InputStream in = new FileInputStream(sourceFile);
 			OutputStream out = new FileOutputStream(destinationFile);
-			int readed;
+			int readed = 0;
 			for (int i = 0; i < 256; i++) {
 				readed = in.read();
 				if(isPrime(i))
@@ -47,8 +47,23 @@ public class FileEncoder61673 {
 			}
 			return false;
 		}
-		public void decode(String sourceFile, String destinationFile, LinkedList<Character> key)
+		public void decode(String sourceFile, String destinationFile, LinkedList<Character> key) throws IOException
 		{
+			InputStream in = new FileInputStream(sourceFile);
+			OutputStream out = new FileOutputStream(destinationFile);
 			
+			int readed = 0;
+			for (int i = 0; i < 256; i++) {
+				readed = in.read();
+				if(isPrime(i))
+				{
+					out.write((char)key.indexOf(readed));
+				}
+				else
+				{
+					out.write(readed);
+				}
+			}
+			out.close();
 		}
 }
