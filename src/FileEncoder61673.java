@@ -28,7 +28,23 @@ public class FileEncoder61673 {
 			out.close();
 		}
 		private boolean isPrime(int number) {
-			// TODO Auto-generated method stub
+			int i = 2;
+			if(number==0)
+			{
+				return false;
+			};
+			if(number == 1 || number == 2)
+			{
+				return true;
+			}
+			while(i<=Math.sqrt(number))
+			{
+				if(number%i==0)
+				{
+					return false;
+				}
+				i++;	
+			}
 			return false;
 		}
 		public void decode(String sourceFile, String destinationFile, LinkedList<Character> key)
