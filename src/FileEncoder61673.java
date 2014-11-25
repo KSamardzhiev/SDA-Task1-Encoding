@@ -16,7 +16,7 @@ public class FileEncoder61673 {
 			int readed = 0;
 			for (int i = 0; i < 256; i++) {
 				readed = in.read();
-				if(isPrime(i))
+				if(!isPrime(i))
 				{
 					out.write(key.get(readed));
 				}
