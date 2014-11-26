@@ -13,9 +13,11 @@ public class FileEncoder61673 {
 		{
 			InputStream in = new FileInputStream(sourceFile);
 			OutputStream out = new FileOutputStream(destinationFile);
+
+			int i = 0;
 			int readed = 0;
-			for (int i = 0; i < 256; i++) {
-				readed = in.read();
+			while((readed  = in.read())!=-1)
+			{
 				if(!isPrime(i))
 				{
 					out.write(key.get(readed));
@@ -24,6 +26,7 @@ public class FileEncoder61673 {
 				{
 					out.write(readed);
 				}
+				i++;
 			}
 			in.close();
 			out.close();
@@ -53,9 +56,11 @@ public class FileEncoder61673 {
 			InputStream in = new FileInputStream(sourceFile);
 			OutputStream out = new FileOutputStream(destinationFile);
 			
+			int i = 0;
 			int readed = 0;
-			for (int i = 0; i < 256; i++) {
-				readed = in.read();
+			while((readed=in.read())!=-1) 
+			{
+				
 				if(isPrime(i))
 				{
 					out.write((char)key.indexOf(readed));
@@ -64,6 +69,7 @@ public class FileEncoder61673 {
 				{
 					out.write(readed);
 				}
+				i++;
 			}
 			in.close();
 			out.close();
