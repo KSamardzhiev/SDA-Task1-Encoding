@@ -4,11 +4,33 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 
 public class FileEncoder61673 {
-
+		private ArrayList<Boolean> eraList = new ArrayList<Boolean>();
+		
+		FileEncoder61673()
+		{
+			for (int i = 0; i < 300000; i++) {
+				eraList.add(true);
+			}
+			
+			eraList.set(0, false);
+			eraList.set(1,true);
+			
+			for (int i = 2; i < Math.sqrt(300000); i++) {
+				
+				if(eraList.get(i)==true)
+				{	
+					for (int j = i; j * i < 300000; j++) 
+					{
+						eraList.set(i*j, false);
+				    }
+				}
+			}		
+		}
 		public void encode(String sourceFile, String destinationFile, LinkedList<Character> key) throws IOException
 		{
 			InputStream in = new FileInputStream(sourceFile);
@@ -32,24 +54,14 @@ public class FileEncoder61673 {
 			out.close();
 		}
 		private boolean isPrime(int number) {
-			int k = 2;
-			if(number==0)
-			{
-				return false;
-			};
-			if(number == 1 || number == 2)
+			if(eraList.get(number))
 			{
 				return true;
 			}
-			while(k<=Math.sqrt(number))
+			else
 			{
-				if(number%k==0)
-				{
-					return false;
-				}
-				k++;	
+				return false;
 			}
-			return true;
 		}
 		public void decode(String sourceFile, String destinationFile, LinkedList<Character> key) throws IOException
 		{
@@ -60,7 +72,6 @@ public class FileEncoder61673 {
 			int readed = 0;
 			while((readed=in.read())!=-1) 
 			{
-				
 				if(isPrime(i))
 				{
 					out.write((char)key.indexOf(readed));
