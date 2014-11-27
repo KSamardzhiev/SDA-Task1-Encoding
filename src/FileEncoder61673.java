@@ -72,7 +72,7 @@ public class FileEncoder61673 {
 			int readed = 0;
 			while((readed=in.read())!=-1) 
 			{
-				if(isPrime(i))
+				if(!isPrime(i))
 				{
 					out.write((char)key.indexOf(readed));
 				}
