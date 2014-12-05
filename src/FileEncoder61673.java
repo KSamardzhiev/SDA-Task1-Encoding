@@ -78,7 +78,7 @@ public class FileEncoder61673 {
 				}
 				else
 				{
-					out.write(readed);
+					out.write((char)readed);
 				}
 				i++;
 			}
