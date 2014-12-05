@@ -74,11 +74,11 @@ public class FileEncoder61673 {
 			{
 				if(!isPrime(i))
 				{
-					out.write((char)key.indexOf(readed));
+					out.write(key.indexOf(readed));
 				}
 				else
 				{
-					out.write((char)readed);
+					out.write(readed);
 				}
 				i++;
 			}
